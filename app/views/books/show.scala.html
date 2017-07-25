@@ -1,0 +1,15 @@
+@(book: Book)
+
+@layout(book.title){
+    <h2>@book.title</h2>
+    <p>Price : @book.price $</p>
+    <p>Author : @book.author</p>
+
+    <a class="btn btn-primary" href="@routes.BooksController.edit(book.id)">Edit</a>
+
+    <button class="btn btn-danger" onclick="sendDeleteRequest(
+        '@routes.BooksController.destroy(book.id)',
+         '@routes.HomeController.index()'
+    )">Delete</button>
+
+}
